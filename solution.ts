@@ -31,8 +31,19 @@ class Person {
   }
 }
 
-const person1 = new Person('John Doe', 30);
-console.log(person1.getDetails());
 
-const person2 = new Person('Alice', 25);
-console.log(person2.getDetails());
+type Books = {
+  title: string, rating: number
+}
+
+const filterByRating = (value: Books[]) => {
+ return value.filter(data => data.rating >= 4);
+}
+
+const books = [
+  { title: 'Book A', rating: 4.5 },
+  { title: 'Book B', rating: 3.2 },
+  { title: 'Book C', rating: 5.0 },
+];
+
+console.log(filterByRating(books));
