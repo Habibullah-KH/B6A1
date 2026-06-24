@@ -9,41 +9,59 @@ const formatValue = (value: Value) => {
   }
 };
 
-const getLength = <T extends {length: number}>(value: T): number => {
-return value.length;
-}
-
+const getLength = <T extends { length: number }>(value: T): number => {
+  return value.length;
+};
 
 class Person {
   name: string;
   age: number;
 
-  constructor(name: string, age: number){
+  constructor(name: string, age: number) {
     this.name = name;
     this.age = age;
   }
 
-  getDetails(): {Name: string; Age: number} {
+  getDetails(): { Name: string; Age: number } {
     return {
       Name: this.name,
-      Age: this.age
-    }
+      Age: this.age,
+    };
   }
 }
 
-
 type Books = {
-  title: string, rating: number
-}
+  title: string;
+  rating: number;
+};
 
 const filterByRating = (value: Books[]) => {
- return value.filter(data => data.rating >= 4);
+  return value.filter((data) => data.rating >= 4);
+};
+
+interface User {
+  name: string;
+  email: string;
 }
 
-const books = [
-  { title: 'Book A', rating: 4.5 },
-  { title: 'Book B', rating: 3.2 },
-  { title: 'Book C', rating: 5.0 },
-];
+interface UserIsActive extends User {
+  isActive: true | false;
+}
 
-console.log(filterByRating(books));
+const filterActiveUsers = (value: UserIsActive[]) => {
+  return value.filter((data) => data.isActive == true);
+};
+
+interface Book {
+  title: string;
+  author:string;
+  publishedYear:number;
+  isAvailable:boolean;
+}
+
+const printBookDetails = (value: Book) => {
+  return console.log(`Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${value.isAvailable? "Yes" : "No"}`)
+}
+
+
+
