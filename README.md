@@ -8,8 +8,7 @@
 ### Interface
 
 * মূলত Object-এর Structure বা Blueprint তৈরির জন্য ব্যবহৃত হয়।
-* একই Interface একাধিকবার Declare করলে TypeScript সেগুলোকে Merge করে দেয় (Declaration Merging)।
-* বড় Project-এ Object-এর Contract নির্ধারণের জন্য এটি বেশি ব্যবহৃত হয়।
+* একই Interface একাধিকবার Declare করলে TypeScript সেগুলোকে Merge করে দেয় ।
 
 **উদাহরণ:**
 
@@ -23,7 +22,7 @@ interface User {
 ### Type
 
 * শুধু Object নয়, Union, Tuple, Primitive Alias এবং Function Type তৈরির জন্যও ব্যবহার করা যায়।
-* Declaration Merging সমর্থন করে না।
+* Declaration Merging support করে না।
 * জটিল Type তৈরি করতে এটি বেশি Flexible।
 
 **উদাহরণ:**
@@ -47,7 +46,7 @@ interface User {
 type UserKeys = keyof User;
 ```
 
-এখানে `UserKeys` হবে:
+এখানে `UserKeys` output হবে:
 
 ```typescript
 "name" | "age"
