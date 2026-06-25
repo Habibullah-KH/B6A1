@@ -63,5 +63,57 @@ const printBookDetails = (value: Book) => {
   return console.log(`Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${value.isAvailable? "Yes" : "No"}`)
 }
 
+const getUniqueValues = <T>(arr1: T[], arr2: T[]) => {
 
+  let i1 = arr1.length;
+  let i2 = arr2.length;
 
+  for(let i = 0; i <= i1; i++){
+      for(let j = 0; j <= i2; j++){
+       if(arr1[i] === arr2[j]){
+        arr2.splice(j, 1)
+       }
+  }
+  }
+  return [...arr1, ...arr2];
+}
+
+interface Product {
+name: string
+price: number
+quantity: number
+discount?: number
+}
+
+const calculateTotalPrice = (value: Product[]) =>{
+
+let disPrice:number;
+let afterDisPrice: number = 0;
+let tem:number;
+let dis:number;
+let sum: number = 0;
+let totalPrice: number;
+return value.reduce((acumulator, products)=>{
+
+  tem = products.price * products.quantity;
+  if(products.discount){
+    dis = products.discount / 100;
+    disPrice = tem*dis;
+    afterDisPrice += tem - disPrice;
+  }
+  else if(!products.discount){
+    sum += tem;
+  }
+
+  return acumulator = sum + afterDisPrice;
+}, 0)
+
+}
+
+const products = [
+  { name: 'Pen', price: 10, quantity: 2 },
+  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
+
+console.log(calculateTotalPrice(products));
