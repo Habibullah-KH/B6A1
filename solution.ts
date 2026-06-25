@@ -60,7 +60,7 @@ interface Book {
 }
 
 const printBookDetails = (value: Book) => {
-  return console.log(`Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${value.isAvailable? "Yes" : "No"}`)
+  return (`Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${value.isAvailable? "Yes" : "No"}`)
 }
 
 const getUniqueValues = <T>(arr1: T[], arr2: T[]) => {
